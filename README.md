@@ -68,8 +68,8 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 *Layers Cooldown* - cooldown between layers\
 *Layers Speed Change* - additively changes speed of each projectile in layer\
 
-**Spawner Stats - Color**
-*Color* - duh
-*Color Cycle* - if you need to cycle trough multiple colors
-*Cycle in Types* - by default color change will appear only in next layer. This allows you to change color after each new bullet
-*Colors in Cycle* - array in which you create color change pattern
+**Spawner Stats - Color**\
+*Color* - duh\
+*Color Cycle* - if you need to cycle trough multiple colors\
+*Cycle in Types* - by default color change will appear only in next layer. This allows you to change color after each new bullet\
+*Colors in Cycle* - array in which you create color change pattern\
