@@ -14,7 +14,7 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 -*Projectiles* only store movement, sprite and damage
 -All patterns are created via *ProjectileSpawners*
 -*ProjectileSpawners* operate trough *Types* and *Layers*
-#### Projectiles
+### Projectiles
 
 **Projectile Properties**
 -Has *CMP_Move*, special component that handles movement
@@ -37,7 +37,7 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 *Sin Amp* - controls amplitude
 
 *Cos* equivalents are the same
-#### Projectile Spawners
+### Projectile Spawners
 
 **Spawner Properties**
 -Has scene to spawn
