@@ -4,7 +4,7 @@ extends Resource
 @export_group("BASIS STATS")
 @export var player_attack: bool = false
 @export var damage: int = 1
-@export var life_time: float = 1.0
+@export var life_time: float = 10.0
 @export_group("MOVEMENT STATS")
 @export var speed: int = 1
 @export_range(0.0, 2, 0.05) var post_rotation: float = 0.0
