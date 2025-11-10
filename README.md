@@ -13,7 +13,7 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 **Basic Principles**\
 -*Projectiles* only store movement, sprite and damage\
 -All patterns are created via *ProjectileSpawners*\
--*ProjectileSpawners* operate trough *Types* and *Layers*\
+-*ProjectileSpawners* operate trough *Types* and *Layers*
 ### Projectiles
 
 **Projectile Properties**\
@@ -36,7 +36,7 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 *Sin Frec* - controls frequency\
 *Sin Amp* - controls amplitude\
 
-*Cos* equivalents are the same\
+*Cos* equivalents are the same
 ### Projectile Spawners
 
 **Spawner Properties**\
@@ -72,4 +72,4 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 *Color* - duh\
 *Color Cycle* - if you need to cycle trough multiple colors\
 *Cycle in Types* - by default color change will appear only in next layer. This allows you to change color after each new bullet\
-*Colors in Cycle* - array in which you create color change pattern\
+*Colors in Cycle* - array in which you create color change pattern
