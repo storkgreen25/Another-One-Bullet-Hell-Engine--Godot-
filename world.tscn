@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfcgkti04dtth"]
+
+[ext_resource type="Script" uid="uid://boj1bnpwwnauk" path="res://world.gd" id="1_tlwt5"]
+[ext_resource type="Script" uid="uid://b2pn4boatm3ko" path="res://spawners/spawner_projectiles.gd" id="2_aqk2v"]
+[ext_resource type="Script" uid="uid://dwn3fd1taydem" path="res://spawners/spawner_projectiles_stats.gd" id="3_aqk2v"]
+[ext_resource type="Script" uid="uid://bdnw44xk5o1b5" path="res://projectiles/projectile_stats.gd" id="4_036b0"]
+[ext_resource type="PackedScene" uid="uid://wxd5xgcicofa" path="res://projectiles/default_bullet.tscn" id="5_036b0"]
+
+[sub_resource type="Resource" id="Resource_dwbse"]
+script = ExtResource("4_036b0")
+life_time = 5.0
+speed = 20
+metadata/_custom_type_script = "uid://bdnw44xk5o1b5"
+
+[sub_resource type="Resource" id="Resource_aqk2v"]
+script = ExtResource("3_aqk2v")
+stats_new = SubResource("Resource_dwbse")
+spawn_type = 1
+type_amount = 10
+type_cooldown = 0.5
+type_speed_change = -1
+layers_infinite = true
+layers_cooldown = 5.0
+color_cycle = true
+cycle_in_type = true
+colors_in_cycle = Array[int]([2, 2, 1])
+metadata/_custom_type_script = "uid://dwn3fd1taydem"
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_tlwt5")
+
+[node name="SpawnerProjectiles" type="Node2D" parent="."]
+position = Vector2(160, 90)
+script = ExtResource("2_aqk2v")
+stats = SubResource("Resource_aqk2v")
+scene_to_spawn = ExtResource("5_036b0")
+activated = true
+metadata/_custom_type_script = "uid://b2pn4boatm3ko"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS:
+Bullets:"

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://wxd5xgcicofa"]
+
+[ext_resource type="Script" uid="uid://oruo51eta43l" path="res://projectiles/projectle.gd" id="1_3af4v"]
+[ext_resource type="Script" uid="uid://bdnw44xk5o1b5" path="res://projectiles/projectile_stats.gd" id="2_j2qbb"]
+[ext_resource type="Script" uid="uid://dl0eeiobpfelx" path="res://cmp/cmp_move.gd" id="2_r7qjh"]
+[ext_resource type="Texture2D" uid="uid://ycllhpn73dw1" path="res://projectiles/projectiles.png" id="3_sdtwn"]
+
+[sub_resource type="Resource" id="Resource_i0sc5"]
+resource_local_to_scene = true
+script = ExtResource("2_j2qbb")
+life_time = 10.0
+speed = 25
+metadata/_custom_type_script = "uid://bdnw44xk5o1b5"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2qbb"]
+size = Vector2(4, 4)
+
+[node name="Default Bullet" type="Node2D" node_paths=PackedStringArray("move_component", "sprite")]
+script = ExtResource("1_3af4v")
+stats = SubResource("Resource_i0sc5")
+move_component = NodePath("CMP_Move")
+sprite = NodePath("Projectile Sprite")
+metadata/_custom_type_script = "uid://oruo51eta43l"
+
+[node name="Projectile Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_sdtwn")
+hframes = 10
+
+[node name="CMP_Move" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_r7qjh")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://dl0eeiobpfelx"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_j2qbb")
