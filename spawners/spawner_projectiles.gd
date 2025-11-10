@@ -27,7 +27,7 @@ func spawner_type_logic() -> void:
 		for y in stats.type_amount:
 			await get_tree().create_timer(stats.type_cooldown).timeout
 			if stats.cycle_in_type: color_control()
-			custom_angle += 360 / stats.type_amount
+			custom_angle += 360 / stats.type_amount + stats.type_gap
 			spawn()
 			speed_change += stats.type_speed_change
 	#CORNER TYPE
