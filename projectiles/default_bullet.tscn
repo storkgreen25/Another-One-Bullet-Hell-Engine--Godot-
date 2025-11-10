@@ -8,8 +8,7 @@
 [sub_resource type="Resource" id="Resource_i0sc5"]
 resource_local_to_scene = true
 script = ExtResource("2_j2qbb")
-life_time = 10.0
-speed = 25
+speed = 20
 metadata/_custom_type_script = "uid://bdnw44xk5o1b5"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2qbb"]
