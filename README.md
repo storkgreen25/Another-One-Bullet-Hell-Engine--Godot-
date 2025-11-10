@@ -7,7 +7,7 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 ### TO DO List and Current known bugs
 -Speed changes don't work as intended with stats ovverride\
 -Most of the pattern types are not implemented yet\
--Wanna redo logic behind spawner types\
+-Wanna redo logic behind spawner types
 
 ## Documentation
 **Basic Principles**\
