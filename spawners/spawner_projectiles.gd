@@ -15,34 +15,16 @@ func spawner_type_logic() -> void:
 	if stats.type_centered:
 		custom_angle -= (( stats.type_amount - 1 ) * stats.type_gap) / 2
 	
-	#SPREAD TYPE
-	if stats.spawn_type == stats.TYPE.SPREAD:
-		for y in stats.type_amount:
-			await get_tree().create_timer(stats.type_cooldown).timeout
-			if stats.cycle_in_type: color_control()
-			spawn()
+	for y in stats.type_amount:
+		if stats.cycle_in_type: color_control()
+		spawn()
+		
+		if stats.spawn_type == stats.TYPE.SPREAD:
 			custom_angle += stats.type_gap
-			speed_change_type += stats.type_speed_change
-	#RING TYPE
-	elif stats.spawn_type == stats.TYPE.RING:
-		for y in stats.type_amount:
-			await get_tree().create_timer(stats.type_cooldown).timeout
-			if stats.cycle_in_type: color_control()
+		elif stats.spawn_type == stats.TYPE.RING:
 			custom_angle += 360 / stats.type_amount + stats.type_gap
-			spawn()
-			speed_change_type += stats.type_speed_change
-	#CORNER TYPE
-	elif stats.spawn_type == stats.TYPE.CORNER:
-		spawn()
-	#STAR TYPE
-	elif stats.spawn_type == stats.TYPE.STAR:
-		spawn()
-	#WALL TYPE
-	elif stats.spawn_type == stats.TYPE.WALL:
-		spawn()
-	#SQUARE TYPE
-	elif stats.spawn_type == stats.TYPE.SQUARE:
-		spawn()
+	
+	speed_change_type += stats.type_speed_change
 
 #HANDLES LAYERS AND RESETS
 func spawner_logic() -> void:
