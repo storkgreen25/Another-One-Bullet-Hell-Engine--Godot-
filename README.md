@@ -54,7 +54,8 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 *Type Cooldown* - cooldown between spawn of each projectile in pattern\
 *Type Speed Change* - additively changes speed of each projectile in pattern\
 *Type Centered* - if pattern needs to be centered\
-*Type Gap* - distance between each projectile in pattern
+*Type Gap* - distance between each projectile in pattern\
+*Type Back Gap* - vertical distance between each projectile in pattern
 
 **Spawner Stats - Spawn point**\
 *Distance from Spawner* - changes where bullet will spawn\
