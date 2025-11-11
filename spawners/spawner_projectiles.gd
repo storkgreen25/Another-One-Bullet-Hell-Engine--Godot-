@@ -9,38 +9,47 @@ var color_num: int = 0
 var color_cycle_num: int = 0
 var speed_change_type: int = 0
 var speed_change_layer: int = 0
-var distance_change: Vector2 = Vector2.ZERO
+var distance_change_layer: Vector2 = Vector2.ZERO
+var distance_change_type: Vector2 = Vector2.ZERO
 
 func spawner_type_logic() -> void:
 	if stats.type_centered:
 		if stats.spawn_type == stats.TYPE.WALL:
-			distance_change.x -= (stats.type_gap * stats.type_amount) / 2
+			distance_change_type.x -= (stats.type_gap * stats.type_amount) / 2
 		else:
 			custom_angle -= (( stats.type_amount - 1 ) * stats.type_gap) / 2
 	
 	for y in stats.type_amount:
-		if stats.cycle_in_type: color_control()
+		
 		spawn()
 		
 		if stats.spawn_type == stats.TYPE.SPREAD:
 			custom_angle += stats.type_gap
+
 		elif stats.spawn_type == stats.TYPE.RING:
 			custom_angle += 360 / stats.type_amount + stats.type_gap
+
 		elif stats.spawn_type == stats.TYPE.CORNER:
 			pass
+
 		elif stats.spawn_type == stats.TYPE.STAR:
 			pass
+
 		elif stats.spawn_type == stats.TYPE.WALL:
-			distance_change.x += stats.type_gap
+			distance_change_type.x += stats.type_gap
+
 		elif stats.spawn_type == stats.TYPE.SQUARE:
 			pass
+
+		distance_change_type.y -= stats.type_back_gap
+		if stats.cycle_in_type: color_control()
 	
 	speed_change_type += stats.type_speed_change
 
 #HANDLES LAYERS AND RESETS
 func spawner_logic() -> void:
 	#ADJUSTMENT TO VARS
-	distance_change = stats.distance_from_spawner
+	distance_change_layer = stats.distance_from_spawner
 	color_num = stats.color
 	custom_rotation = stats.rotation
 	
@@ -55,7 +64,8 @@ func spawner_logic() -> void:
 			
 			#STATS CHANGE AFTER SHOT
 			custom_angle = 0.0
-			distance_change += stats.distance_expand
+			distance_change_type = Vector2.ZERO
+			distance_change_layer += stats.distance_expand
 			speed_change_type = 0
 			speed_change_layer += stats.layers_speed_change
 			custom_rotation += stats.post_rotation
@@ -64,7 +74,7 @@ func spawner_logic() -> void:
 			await get_tree().create_timer(stats.layers_cooldown).timeout
 	
 	#RESETS STATS AFTER SHOT
-	distance_change = stats.distance_from_spawner
+	distance_change_layer = stats.distance_from_spawner
 	custom_rotation = 0.0
 	speed_change_layer = 0
 	havent_shot = true
@@ -74,7 +84,7 @@ func instance_tweaking(instance: Node) -> void:
 		var new_stats: ProjectileStats = stats.stats_new.duplicate()
 		instance.stats = new_stats
 	
-	instance.position += stats.distance_from_spawner + distance_change
+	instance.position += stats.distance_from_spawner + distance_change_layer + distance_change_type
 	instance.stats.speed += speed_change_type + speed_change_layer
 	instance.rotation_degrees += custom_rotation + custom_angle
 	instance.change_color(color_num)
