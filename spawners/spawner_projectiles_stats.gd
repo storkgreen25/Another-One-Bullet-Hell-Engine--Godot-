@@ -17,7 +17,7 @@ enum TYPE {SPREAD, RING, CORNER, STAR, WALL, SQUARE}
 @export var type_speed_change: int = 0
 @export var type_centered: bool = true
 @export var type_gap: float = 0.0
-@export var type_back_gap: float = 0.0
+@export var type_distance_change: Vector2 = Vector2.ZERO
 @export_group("SPAWN POINT STATS")
 @export var distance_from_spawner: Vector2 = Vector2.ZERO
 @export var distance_expand: Vector2 = Vector2.ZERO

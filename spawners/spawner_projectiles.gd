@@ -41,7 +41,7 @@ func spawner_type_logic() -> void:
 		elif stats.spawn_type == stats.TYPE.SQUARE:
 			pass
 
-		distance_change_type.y -= stats.type_back_gap
+		distance_change_type += stats.type_distance_change
 		if stats.cycle_in_type: color_control()
 	
 	speed_change_type += stats.type_speed_change
