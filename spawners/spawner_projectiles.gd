@@ -13,7 +13,10 @@ var distance_change: Vector2 = Vector2.ZERO
 
 func spawner_type_logic() -> void:
 	if stats.type_centered:
-		custom_angle -= (( stats.type_amount - 1 ) * stats.type_gap) / 2
+		if stats.spawn_type == stats.TYPE.WALL:
+			distance_change.x -= (stats.type_gap * stats.type_amount) / 2
+		else:
+			custom_angle -= (( stats.type_amount - 1 ) * stats.type_gap) / 2
 	
 	for y in stats.type_amount:
 		if stats.cycle_in_type: color_control()
@@ -23,6 +26,14 @@ func spawner_type_logic() -> void:
 			custom_angle += stats.type_gap
 		elif stats.spawn_type == stats.TYPE.RING:
 			custom_angle += 360 / stats.type_amount + stats.type_gap
+		elif stats.spawn_type == stats.TYPE.CORNER:
+			pass
+		elif stats.spawn_type == stats.TYPE.STAR:
+			pass
+		elif stats.spawn_type == stats.TYPE.WALL:
+			distance_change.x += stats.type_gap
+		elif stats.spawn_type == stats.TYPE.SQUARE:
+			pass
 	
 	speed_change_type += stats.type_speed_change
 
