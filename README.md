@@ -49,7 +49,7 @@ It is longterm WIP project in which I slowly develop bullet hell "engine"
 **Spawner Stats - Spawn Rotation**\
 *Rotation* - default rotation for projectiles\
 *Post Rotation* - bonus rotation after each spawn\
-*Rotation Min / Rotation Max* - sets minimal and maximum rotation
+*Rotation Min / Rotation Max* - sets minimal and maximum bonus rotation
 
 **Spawner Stats - Spawn type**\
 *Spawn Type* - changes patterns in which bullet will spawn\
