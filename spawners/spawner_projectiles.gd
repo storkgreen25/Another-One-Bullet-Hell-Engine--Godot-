@@ -1,6 +1,8 @@
 class_name SpawnerProjectiles
 extends Spawner
 
+signal layer_finished()
+
 @export var stats: SpawnerProjectileStats
 var havent_shot: bool = true
 var custom_angle: float = 0.0
@@ -78,6 +80,7 @@ func spawner_logic() -> void:
 			havent_shot = false
 
 			await get_tree().create_timer(stats.layers_cooldown).timeout
+			emit_signal("layer_finished")
 	
 	#RESETS STATS AFTER SHOT
 	distance_change_layer = stats.distance_from_spawner
