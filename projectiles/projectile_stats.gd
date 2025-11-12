@@ -7,7 +7,9 @@ extends Resource
 @export var life_time: float = 10.0
 @export_group("MOVEMENT STATS")
 @export var speed: int = 1
-@export_range(0.0, 2, 0.05) var post_rotation: float = 0.0
+@export_range(-2, 2, 0.05) var post_rotation: float = 0.0
+@export var looks_at_point: bool = false
+@export var point: Vector2 = Vector2.ZERO
 @export_group("SIN STATS")
 @export var sin_on_x: bool = false
 @export var sin_on_y: bool = false

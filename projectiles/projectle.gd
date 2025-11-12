@@ -11,8 +11,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	translate(Vector2.DOWN.rotated(rotation) * stats.speed * delta)
-	rotation_degrees += stats.post_rotation
 	
+	if stats.looks_at_point:
+		look_at(stats.point)
+
+	rotation_degrees += stats.post_rotation
+
 	if stats.sin_on_x or stats.sin_on_y:
 		move_component.special_sin(stats.sin_on_x, stats.sin_on_y, stats.sin_grow, stats.sin_frec, stats.sin_amp)
 	
