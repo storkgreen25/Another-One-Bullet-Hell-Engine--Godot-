@@ -6,6 +6,7 @@ signal finished()
 
 @export var scene_to_spawn: PackedScene
 @export var activated: bool = false
+var deactivated: bool = false
 
 func _ready() -> void:
 	if activated: activate()
@@ -24,9 +25,13 @@ func instance_tweaking(_instance: Node) -> void:
 
 #DEFAULT FUNCS
 func activate() -> void:
+	deactivated = false
 	emit_signal("started")
 	spawner_logic()
 	emit_signal("finished")
+
+func deactivate() -> void:
+	deactivated = true
 
 func spawn() -> void:
 	var instance: Node = scene_to_spawn.instantiate()

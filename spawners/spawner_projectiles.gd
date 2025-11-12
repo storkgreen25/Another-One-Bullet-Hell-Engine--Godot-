@@ -21,6 +21,8 @@ func spawner_type_logic() -> void:
 	
 	for y in stats.type_amount:
 		
+		if deactivated: return
+
 		spawn()
 		
 		if stats.spawn_type == stats.TYPE.SPREAD:
@@ -57,6 +59,7 @@ func spawner_logic() -> void:
 	while (havent_shot or stats.layers_infinite):
 		#LAYER
 		for x in stats.layers_amount:
+			if deactivated: return
 			if stats.color_cycle: color_control()
 			
 			#SPREAD
