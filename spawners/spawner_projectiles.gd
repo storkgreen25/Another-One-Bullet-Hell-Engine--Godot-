@@ -89,7 +89,18 @@ func instance_tweaking(instance: Node) -> void:
 	
 	instance.position += stats.distance_from_spawner + distance_change_layer + distance_change_type
 	instance.stats.speed += speed_change_type + speed_change_layer
+
 	instance.rotation_degrees += custom_rotation + custom_angle
+	if instance.rotation_degrees >= stats.rotation_max: 
+		instance.rotation_degrees -= stats.rotation_max
+	if custom_rotation >= stats.rotation_max:
+		custom_rotation -= stats.rotation_max
+	
+	if instance.rotation_degrees <= stats.rotation_min: 
+		instance.rotation_degrees += stats.rotation_min
+	if custom_rotation <= stats.rotation_min:
+		custom_rotation += stats.rotation_min
+
 	instance.change_color(color_num)
 	if stats.projectile_group != "": 
 		instance.add_to_group(stats.projectile_group)

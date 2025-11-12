@@ -8,8 +8,11 @@ enum TYPE {SPREAD, RING, CORNER, STAR, WALL, SQUARE}
 @export var projectile_group: String = ""
 @export var stats_override: bool = false
 @export var stats_new: ProjectileStats
+@export_group("SPAWN ROTATION")
 @export var rotation: float = 0.0
 @export var post_rotation: float = 0.0
+@export var rotation_min: float = 0.0
+@export var rotation_max: float = 359.0
 @export_group("SPAWN TYPE STATS")
 @export var spawn_type: TYPE = TYPE.SPREAD
 @export var type_amount: int = 1
