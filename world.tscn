@@ -7,9 +7,6 @@
 
 [sub_resource type="Resource" id="Resource_aqk2v"]
 script = ExtResource("3_aqk2v")
-spawn_type = 1
-type_amount = 6
-layers_infinite = true
 metadata/_custom_type_script = "uid://dwn3fd1taydem"
 
 [node name="World" type="Node2D"]
