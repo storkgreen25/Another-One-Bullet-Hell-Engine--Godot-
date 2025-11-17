@@ -17,7 +17,8 @@ var distance_change_type: Vector2 = Vector2.ZERO
 func spawner_type_logic() -> void:
 	if stats.type_centered:
 		if stats.spawn_type == stats.TYPE.WALL:
-			distance_change_type.x -= (stats.type_gap * stats.type_amount) / 2
+			distance_change_type.x -= (( stats.type_amount - 1 ) * stats.type_gap) / 2 * cos(deg_to_rad(custom_rotation))
+			distance_change_type.y -= (( stats.type_amount - 1 ) * stats.type_gap) / 2 * sin(deg_to_rad(custom_rotation))
 		else:
 			custom_angle -= (( stats.type_amount - 1 ) * stats.type_gap) / 2
 	
@@ -40,8 +41,9 @@ func spawner_type_logic() -> void:
 			pass
 
 		elif stats.spawn_type == stats.TYPE.WALL:
-			distance_change_type.x += stats.type_gap
-
+			distance_change_type.x += stats.type_gap * cos(deg_to_rad(custom_rotation))
+			distance_change_type.y += stats.type_gap * sin(deg_to_rad(custom_rotation))
+			
 		elif stats.spawn_type == stats.TYPE.SQUARE:
 			pass
 
@@ -95,7 +97,7 @@ func instance_tweaking(instance: Node) -> void:
 	
 	instance.position += stats.distance_from_spawner + distance_change_layer + distance_change_type
 	instance.stats.speed += speed_change_type + speed_change_layer
-
+	
 	instance.rotation_degrees += custom_rotation + custom_angle
 
 	instance.change_color(color_num)
